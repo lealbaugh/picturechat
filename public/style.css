@@ -1,0 +1,44 @@
+body {
+  background-color: #555;
+  font-family: Helevetica Neue, Helevetica, sans-serif;
+  font-weight: bold;
+  color: #444444; }
+
+#wrapper {
+  background-color: #ffffff;
+  width: 100%;
+  /*float:left;*/ }
+
+.lineitem {
+  float: left;
+  font-size: 20px; }
+
+.button {
+  float: left;
+  /*	border: 1px solid;*/ }
+
+#composingstick {
+  background-color: blue;
+  width: 100%;
+  clear: both; }
+
+#transcript {
+  clear: both;
+  background-color: red;
+  width: 100%; }
+  #transcript .phrase {
+    clear: both;
+    background-color: #eeeeee;
+    float: left; }
+
+#buttons {
+  float: left;
+  clear: both;
+  border: 2px dotted #444444;
+  background-color: #eeeeee; }
+
+#sendbutton {
+  float: left;
+  clear: both;
+  /*border: 1px solid $dark;*/
+  background-color: #eeeeee; }

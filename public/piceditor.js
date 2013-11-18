@@ -6,31 +6,17 @@ function main() {
 function init() {
 	picPhrase = [];
 
-	var transcript = document.createElement('div');
-	transcript.setAttribute("id", "transcript");
-	document.querySelector('body').appendChild(transcript);
-
-	var composingstick = document.createElement('div');
-	composingstick.setAttribute("id", "composingstick");
-	document.querySelector('body').appendChild(composingstick);
-
 	var prompt = document.createElement('div');
 	prompt.innerHTML = "&gt;";
-	prompt.setAttribute("style", "float:left; clear:both; font-size:20px");
+	prompt.setAttribute("class", "lineitem");
 	document.querySelector('#composingstick').appendChild(prompt);
-
-
-	var buttonsplace = document.createElement('div');
-	buttonsplace.setAttribute("id", "buttons");
-	buttonsplace.setAttribute("style", "clear: both");
-	document.querySelector('body').appendChild(buttonsplace);
 
 	var sendbutton = document.createElement('div');
 	sendbutton.innerHTML = "<a>SUBMIT</a>";
 	sendbutton.addEventListener("click", function(){ post()});
-	sendbutton.setAttribute("style", "float:left; border:1px dotted")
-	document.querySelector('body').appendChild(sendbutton);
-
+	sendbutton.setAttribute("class", "button");
+	sendbutton.setAttribute("id", "sendbutton");
+	document.querySelector('#wrapper').insertBefore(sendbutton, document.querySelector('#buttons'));
 
 	ws = io.connect()
 // 'http://localhost:5000/'
@@ -43,10 +29,18 @@ function init() {
 		var thisbutton = document.createElement('div');
 		thisbutton.innerHTML = "<a><img src=\"assets/"+buttonname+".png\"></a>";
 		thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
-		thisbutton.setAttribute("style", "float:left; border:1px dotted")
+		thisbutton.setAttribute("class", "button")
 		document.querySelector('#buttons').appendChild(thisbutton);
 	})
 	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	// for the sake of having lots of buttons, for visual effect
+
 }
 
 function addToComposingStick(buttonname) {
@@ -58,9 +52,11 @@ function addToComposingStick(buttonname) {
 function post(){
 	ws.emit("post", picPhrase);
 	picPhrase = [];
+	console.log(document.querySelector("#composingstick").childNodes);
 	while (document.querySelector("#composingstick").childNodes.length > 1){
-		console.log("removin");
-		document.querySelector("#composingstick").removeChild(document.querySelector("#composingstick").childNodes[1]);	
+		
+		console.log(document.querySelector("#composingstick").childNodes.item(1));
+		document.querySelector("#composingstick").removeChild(document.querySelector("#composingstick").childNodes.item(1));	
 	}
 	
 }
@@ -69,20 +65,23 @@ function post(){
 function addPicture(imagename, location) {
 	var thisimage = document.createElement('div');
 	thisimage.innerHTML = "<img src=\"assets/"+imagename+".png\">";
-	thisimage.setAttribute("style", "float:left")
+	thisimage.setAttribute("class", "lineitem")
 	document.querySelector(location).appendChild(thisimage);
 }
 
 function addPicPhraseToTranscript(picPhrase){
 	var phrase = document.createElement('div');
 	phrase.setAttribute("id", "activephrase");
-	phrase.setAttribute("style", "clear: both");
 	document.querySelector('#transcript').appendChild(phrase);
 	for (var i = 0; i<picPhrase.length; i++){
 		imagename = picPhrase[i];
 		addPicture(imagename, "#activephrase");
 	}
-	document.querySelector('#activephrase').setAttribute("id", "phrase");
+	
+
+	document.querySelector('#activephrase').setAttribute("class", "phrase");
+	document.querySelector('#activephrase').setAttribute("id", "inactivephrase");
+
 }
 
 main();
