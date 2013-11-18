@@ -1,4 +1,3 @@
-
 var http = require('http')
   , express = require('express')
   , app = express()
@@ -7,7 +6,7 @@ var http = require('http')
 app.use(express.static(__dirname + '/public'));
 
 var server = http.createServer(app);
-server.listen(3000, '192.168.1.3', function() { console.log(this._connectionKey)});
+server.listen(3000,  function() { console.log(this._connectionKey)});
 
 console.log('http server listening on %d', port);
 
@@ -42,5 +41,31 @@ io.sockets.on('connection', function(socket){
 		socket.broadcast.emit('mouseMoved', mouseX, mouseY);
 		socket.emit('mouseMoved', mouseX, mouseY);
 	});
+	socket.on('getImages', function(mouseX, mouseY){
+		var dir = require('node-dir');
+		dir.readFiles(__dirname+"/public/assets", {match: /.png$/}, function(err, content, filename, next) {
+		        if (err) throw err;
+		        filename = filename.replace(__dirname+"/public/assets/", "");
+		        filename = filename.replace(".png", "");
+		        // console.log('filename:', filename);
+		        socket.emit('image', filename);
+		        next();
+		    });
+	});
+	socket.on('post', function(picPhrase){
+		socket.broadcast.emit("post", picPhrase);
+		socket.emit("post", picPhrase);
+	});
 
 });
+
+
+
+
+
+
+
+
+
+
+

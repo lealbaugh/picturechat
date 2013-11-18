@@ -1,3 +1,40 @@
+
+// Required HTML:
+// <html>
+// 	<head>
+// 		<script src="http://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>	
+// 		<style>
+// 			body {
+// 			font-family: "Helvetica Neue", helvetica, arial;
+// 			padding: 15px;
+// 		}
+// 		ul {
+// 			list-style: none;
+// 			margin: 0;
+// 			padding: 0;
+// 		}
+// 		</style>
+
+// 	</head>
+// 	<body>
+// 		<form id="form">
+// 			<input type="text" name="text"></input>
+// 			<button name="button">Hi!</button>
+// 		</form>
+// 		<ul id='transcript'></ul>
+// 		<canvas id='canvas' style="border:1px dotted"></canvas>
+
+// 	<script src="piceditor.js"></script>
+// 	</body>
+// </html>
+
+
+
+
+
+
+
+
 var otherMouseX = 0;
 var otherMouseY = 0;
 
