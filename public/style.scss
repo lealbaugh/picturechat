@@ -1,6 +1,13 @@
 $dark: #444;
 $light: #ccc;
 $bg: #777;
+$wrap-width:70%;
+
+@mixin marginsize(){
+
+}
+
+
 
 @mixin roundcorners($radius) {
     -moz-border-radius: $radius;    // firefox
@@ -23,13 +30,30 @@ body {
 }
 
 #wrapper {
-	width:70%;
-	margin-left: 15%;
-	margin-right: auto;
+	@media screen and (max-width: 780px) {
+		$wrap-width:90%;
+		width:$wrap-width;
+		margin-left: (100%-$wrap-width)/2;
+		margin-right: auto;
+	}
+	@media screen and (min-width: 790px) {
+		$wrap-width:70%;
+		width:$wrap-width;
+		margin-left: (100%-$wrap-width)/2;
+		margin-right: auto;
+	}
+	/*position:relative;*/
 }
 
 #input {
-	width:70%;
+	@media screen and (max-width: 780px) {
+		$wrap-width:90%;
+		width:$wrap-width;
+	}
+	@media screen and (min-width: 780px) {
+		$wrap-width:70%;
+		width:$wrap-width;
+	}
 	position: absolute;
 	bottom: 0px;
 }
@@ -60,7 +84,8 @@ body {
 }
 
 #transcript {
-	clear:both;
+	overflow: auto;
+	overflow-y: auto;
 	width:100%;
 	.phrase {
 		clear:both;

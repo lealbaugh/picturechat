@@ -6,14 +6,27 @@ body {
   display: inline; }
 
 #wrapper {
-  width: 70%;
-  margin-left: 15%;
-  margin-right: auto; }
+  /*position:relative;*/ }
+  @media screen and (max-width: 780px) {
+    #wrapper {
+      width: 90%;
+      margin-left: 5%;
+      margin-right: auto; } }
+  @media screen and (min-width: 790px) {
+    #wrapper {
+      width: 70%;
+      margin-left: 15%;
+      margin-right: auto; } }
 
 #input {
-  width: 70%;
   position: absolute;
   bottom: 0px; }
+  @media screen and (max-width: 780px) {
+    #input {
+      width: 90%; } }
+  @media screen and (min-width: 780px) {
+    #input {
+      width: 70%; } }
 
 .lineitem {
   display: inline;
@@ -38,7 +51,8 @@ body {
   margin-right: 50px; }
 
 #transcript {
-  clear: both;
+  overflow: auto;
+  overflow-y: auto;
   width: 100%; }
   #transcript .phrase {
     clear: both;
