@@ -5,57 +5,33 @@ body {
   color: #444444;
   display: inline; }
 
-#wrapper {
-  /*position:relative;*/ }
-  @media screen and (max-width: 780px) {
-    #wrapper {
-      width: 90%;
-      margin-left: 5%;
-      margin-right: auto; } }
-  @media screen and (min-width: 790px) {
-    #wrapper {
-      width: 70%;
-      margin-left: 15%;
-      margin-right: auto; } }
-
-#input {
-  position: absolute;
-  bottom: 0px; }
-  @media screen and (max-width: 780px) {
-    #input {
-      width: 90%; } }
-  @media screen and (min-width: 780px) {
-    #input {
-      width: 70%; } }
-
-.lineitem {
-  display: inline;
-  padding-top: 5px; }
-
-.button {
-  display: inline;
-  margin: 5px;
-  /*	border: 1px solid;*/ }
-
-#editarea {
-  background-color: white;
-  min-height: 40px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; }
-
-#composingstick {
-  background-color: white;
-  display: inline;
-  margin-left: 20px;
-  margin-right: 50px; }
+@media screen and (min-width: 780px) {
+  #wrapper {
+    width: 70%;
+    margin-left: 15%;
+    margin-right: auto; } }
+@media screen and (max-width: 780px) {
+  #wrapper {
+    width: 90%;
+    margin-left: 5%;
+    margin-right: auto; } }
 
 #transcript {
+  position: absolute;
+  top: 0px;
+  bottom: 165px;
+  margin-left: 10px;
+  margin-right: 100px;
   overflow: auto;
   overflow-y: auto;
   width: 100%; }
+  @media screen and (min-width: 780px) {
+    #transcript {
+      width: 70%; } }
+  @media screen and (max-width: 780px) {
+    #transcript {
+      width: 90%; } }
   #transcript .phrase {
-    clear: both;
     background-color: #cccccc;
     margin-top: 10px;
     -moz-border-radius: 10px;
@@ -63,25 +39,84 @@ body {
     border-radius: 10px;
     padding: 5px; }
 
-#buttons {
-  border: 2px dotted #444444;
-  background-color: #cccccc;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
+.lineitem {
+  display: inline;
+  padding-top: 5px;
+  min-height: 60px; }
+
+#input {
+  position: absolute;
+  bottom: 5px; }
+  @media screen and (min-width: 780px) {
+    #input {
+      width: 70%; } }
+  @media screen and (max-width: 780px) {
+    #input {
+      width: 90%; } }
+  #input #editarea {
+    background-color: white;
+    min-height: 40px;
+    -moz-border-top-right-radius: 12px;
+    -webkit-border-top-right-radius: 12px;
+    border-top-right-radius: 12px;
+    -moz-border-bottom-right-radius: 12px;
+    -webkit-border-bottom-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    -moz-border-top-left-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
+    #input #editarea #prompt {
+      font-size: 24px;
+      display: inline;
+      position: absolute;
+      padding: 5px; }
+    #input #editarea #composingstick {
+      background-color: white;
+      display: inline;
+      margin-left: 20px;
+      margin-right: 50px; }
+    #input #editarea #sendbutton {
+      display: inline;
+      background-color: #4786DE;
+      position: absolute;
+      right: 0px;
+      font-size: 24px;
+      min-height: 40px;
+      padding-left: 10px;
+      padding-right: 10px;
+      -moz-border-top-right-radius: 10px;
+      -webkit-border-top-right-radius: 10px;
+      border-top-right-radius: 10px;
+      -moz-border-bottom-right-radius: 10px;
+      -webkit-border-bottom-right-radius: 10px;
+      border-bottom-right-radius: 10px; }
+  #input #buttons {
+    max-height: 110px;
+    overflow: auto;
+    overflow-y: auto;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #cccccc;
+    -moz-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
+    #input #buttons .button {
+      display: inline;
+      margin: 5px; }
+
+::-webkit-scrollbar {
+  width: 10px; }
+
+::-webkit-scrollbar-track {
   border-radius: 10px; }
 
-#sendbutton {
-  display: inline;
-  background-color: #4786DE;
-  position: absolute;
-  right: 0px;
-  font-size: 24px;
-  min-height: 40px;
-  padding-left: 10px;
-  padding-right: 10px;
-  -moz-border-top-right-radius: 10px;
-  -webkit-border-top-right-radius: 10px;
-  border-top-right-radius: 10px;
-  -moz-border-bottom-right-radius: 10px;
-  -webkit-border-bottom-right-radius: 10px;
-  border-bottom-right-radius: 10px; }
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #444444; }

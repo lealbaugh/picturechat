@@ -8,7 +8,7 @@ function init() {
 
 	var prompt = document.createElement('div');
 	prompt.innerHTML = "&gt;";
-	prompt.setAttribute("style", "font-size:24px; display:inline; position:absolute; padding:5px");
+	prompt.setAttribute("id", "prompt");
 	document.querySelector('#editarea').insertBefore(prompt, document.querySelector('#composingstick'));
 
 	var sendbutton = document.createElement('div');
@@ -17,6 +17,13 @@ function init() {
 	// sendbutton.setAttribute("style", "float:right");
 	sendbutton.setAttribute("id", "sendbutton");
 	document.querySelector('#editarea').appendChild(sendbutton);
+
+
+	window.addEventListener("keypress", function(e){ 
+		if(e.keyCode === 13){
+			post();
+		}
+	});
 
 	ws = io.connect()
 // 'http://localhost:5000/'
@@ -33,12 +40,12 @@ function init() {
 		document.querySelector('#buttons').appendChild(thisbutton);
 	});
 	ws.emit("getImages");
-	// ws.emit("getImages");
-	// ws.emit("getImages");
-	// ws.emit("getImages");
-	// ws.emit("getImages");
-	// ws.emit("getImages");
-	// ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
+	ws.emit("getImages");
 	// for the sake of having lots of buttons, for visual effect
 
 }
@@ -73,11 +80,17 @@ function addPicPhraseToTranscript(picPhrase){
 		imagename = picPhrase[i];
 		addPicture(imagename, "#activephrase");
 	}
-	
+	document.querySelector('#activephrase').addEventListener("load", autoscroll("transcript"));
 
+	
+	// document.querySelector('#activephrase').scrollIntoView();
 	document.querySelector('#activephrase').setAttribute("class", "phrase");
 	document.querySelector('#activephrase').setAttribute("id", "inactivephrase");
+}
 
+function autoscroll(id){
+	var toScroll = document.getElementById(id);
+		toScroll.scrollTop = toScroll.scrollHeight+200;
 }
 
 main();

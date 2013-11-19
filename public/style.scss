@@ -1,12 +1,8 @@
 $dark: #444;
 $light: #ccc;
 $bg: #777;
-$wrap-width:70%;
-
-@mixin marginsize(){
-
-}
-
+$desktop-wrap-width:70%;
+$mobile-wrap-width:90%;
 
 
 @mixin roundcorners($radius) {
@@ -29,66 +25,44 @@ body {
 	display:inline;
 }
 
+
+@mixin wrappercentering($wrap-width) {
+	width:$wrap-width;
+	margin-left: (100% - $wrap-width)/2;
+	margin-right: auto;
+}
+
+
 #wrapper {
-	@media screen and (max-width: 780px) {
-		$wrap-width:90%;
-		width:$wrap-width;
-		margin-left: (100%-$wrap-width)/2;
-		margin-right: auto;
-	}
-	@media screen and (min-width: 790px) {
-		$wrap-width:70%;
-		width:$wrap-width;
-		margin-left: (100%-$wrap-width)/2;
-		margin-right: auto;
-	}
-	/*position:relative;*/
-}
-
-#input {
-	@media screen and (max-width: 780px) {
-		$wrap-width:90%;
-		width:$wrap-width;
-	}
 	@media screen and (min-width: 780px) {
-		$wrap-width:70%;
-		width:$wrap-width;
+		@include wrappercentering($desktop-wrap-width);
 	}
-	position: absolute;
-	bottom: 0px;
+	@media screen and (max-width: 780px) {
+		@include wrappercentering($mobile-wrap-width);
+	}
 }
 
-
-.lineitem {	
-	display: inline;
-	padding-top: 5px;
-}
-
-.button {
-	display: inline;
-	margin: 5px;
-/*	border: 1px solid;*/
-}
-
-#editarea {
-	background-color: white;
-	min-height:40px;
-	@include roundcorners(10px);
-}
-
-#composingstick {
-	background-color: white;
-	display:inline;
-	margin-left: 20px;
-	margin-right: 50px;
-}
 
 #transcript {
+	@media screen and (min-width: 780px) {
+		width: $desktop-wrap-width;
+	}
+	@media screen and (max-width: 780px) {
+		width: $mobile-wrap-width;
+	}
+	position: absolute;
+	top:0px;
+	bottom: 165px;
+
+	margin-left:10px;
+	margin-right:100px;
+	
 	overflow: auto;
 	overflow-y: auto;
 	width:100%;
+
 	.phrase {
-		clear:both;
+		
 		background-color: $light;
 		margin-top: 10px;
 		@include roundcorners(10px);
@@ -96,22 +70,94 @@ body {
 	}
 }
 
-#buttons {
-	border: 2px dotted $dark;
-	background-color:$light;
-	@include roundcorners(10px);
 
+.lineitem {	
+	display: inline;
+	padding-top: 5px;
+	min-height: 60px;
 }
 
-#sendbutton {
-	display:inline;
-	background-color: #4786DE;
+
+#input {
+	@media screen and (min-width: 780px) {
+		width: $desktop-wrap-width;
+	}
+	@media screen and (max-width: 780px) {
+		width: $mobile-wrap-width;
+	}
 	position: absolute;
-	right:0px;
-	font-size:24px;
-	min-height:40px;
-	padding-left: 10px;
-	padding-right: 10px;
-	@include roundcorner(10px, "top-right");
+	bottom: 5px;
+	
+	#editarea {
+		background-color: white;
+		min-height:40px;
+		@include roundcorner(12px, "top-right");
+		@include roundcorner(12px, "bottom-right");
+		@include roundcorner(10px, "top-left");
+		@include roundcorner(10px, "bottom-left");
+
+		#prompt {
+			font-size:24px; 
+			display:inline; 
+			position:absolute; 
+			padding:5px;
+		}
+
+		#composingstick {
+			background-color: white;
+			display:inline;
+			margin-left: 20px;
+			margin-right: 50px;
+		}
+		#sendbutton {
+			display:inline;
+			background-color: #4786DE;
+			position: absolute;
+			right:0px;
+			font-size:24px;
+			min-height:40px;
+			padding-left: 10px;
+			padding-right: 10px;
+			@include roundcorner(10px, "top-right");
+			@include roundcorner(10px, "bottom-right");
+		}
+	}
+	#buttons {
+		max-height: 110px;
+		overflow: auto;
+		overflow-y: auto;
+		padding-top: 10px;
+		margin-left: 10px;
+		margin-right: 10px;
+
+		background-color:$light;
 	@include roundcorner(10px, "bottom-right");
+	@include roundcorner(10px, "bottom-left");
+
+		.button {
+			display: inline;
+			margin: 5px;
+		}
+	}
 }
+
+
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+ 
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: $dark;
+}
+
+
+
+
+
