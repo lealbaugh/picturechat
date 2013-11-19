@@ -8,15 +8,15 @@ function init() {
 
 	var prompt = document.createElement('div');
 	prompt.innerHTML = "&gt;";
-	prompt.setAttribute("class", "lineitem");
-	document.querySelector('#composingstick').appendChild(prompt);
+	prompt.setAttribute("style", "font-size:24px; display:inline; position:absolute; padding:5px");
+	document.querySelector('#editarea').insertBefore(prompt, document.querySelector('#composingstick'));
 
 	var sendbutton = document.createElement('div');
-	sendbutton.innerHTML = "<a>SUBMIT</a>";
+	sendbutton.innerHTML = "<a>^</a>";
 	sendbutton.addEventListener("click", function(){ post()});
-	sendbutton.setAttribute("class", "button");
+	// sendbutton.setAttribute("style", "float:right");
 	sendbutton.setAttribute("id", "sendbutton");
-	document.querySelector('#wrapper').insertBefore(sendbutton, document.querySelector('#buttons'));
+	document.querySelector('#editarea').appendChild(sendbutton);
 
 	ws = io.connect()
 // 'http://localhost:5000/'
@@ -31,14 +31,14 @@ function init() {
 		thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
 		thisbutton.setAttribute("class", "button")
 		document.querySelector('#buttons').appendChild(thisbutton);
-	})
+	});
 	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
 	// for the sake of having lots of buttons, for visual effect
 
 }
@@ -50,15 +50,11 @@ function addToComposingStick(buttonname) {
 }
 
 function post(){
-	ws.emit("post", picPhrase);
-	picPhrase = [];
-	console.log(document.querySelector("#composingstick").childNodes);
-	while (document.querySelector("#composingstick").childNodes.length > 1){
-		
-		console.log(document.querySelector("#composingstick").childNodes.item(1));
-		document.querySelector("#composingstick").removeChild(document.querySelector("#composingstick").childNodes.item(1));	
+	if (picPhrase.length > 0) {
+		ws.emit("post", picPhrase);
+		picPhrase = [];
+		document.querySelector("#composingstick").innerHTML = "";
 	}
-	
 }
 
 

@@ -1,44 +1,73 @@
 body {
-  background-color: #555;
+  background-color: #777777;
   font-family: Helevetica Neue, Helevetica, sans-serif;
   font-weight: bold;
-  color: #444444; }
+  color: #444444;
+  display: inline; }
 
 #wrapper {
-  background-color: #ffffff;
-  width: 100%;
-  /*float:left;*/ }
+  width: 70%;
+  margin-left: 15%;
+  margin-right: auto; }
+
+#input {
+  width: 70%;
+  position: absolute;
+  bottom: 0px; }
 
 .lineitem {
-  float: left;
-  font-size: 20px; }
+  display: inline;
+  padding-top: 5px; }
 
 .button {
-  float: left;
+  display: inline;
+  margin: 5px;
   /*	border: 1px solid;*/ }
 
+#editarea {
+  background-color: white;
+  min-height: 40px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
+
 #composingstick {
-  background-color: blue;
-  width: 100%;
-  clear: both; }
+  background-color: white;
+  display: inline;
+  margin-left: 20px;
+  margin-right: 50px; }
 
 #transcript {
   clear: both;
-  background-color: red;
   width: 100%; }
   #transcript .phrase {
     clear: both;
-    background-color: #eeeeee;
-    float: left; }
+    background-color: #cccccc;
+    margin-top: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px; }
 
 #buttons {
-  float: left;
-  clear: both;
   border: 2px dotted #444444;
-  background-color: #eeeeee; }
+  background-color: #cccccc;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; }
 
 #sendbutton {
-  float: left;
-  clear: both;
-  /*border: 1px solid $dark;*/
-  background-color: #eeeeee; }
+  display: inline;
+  background-color: #4786DE;
+  position: absolute;
+  right: 0px;
+  font-size: 24px;
+  min-height: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  -moz-border-top-right-radius: 10px;
+  -webkit-border-top-right-radius: 10px;
+  border-top-right-radius: 10px;
+  -moz-border-bottom-right-radius: 10px;
+  -webkit-border-bottom-right-radius: 10px;
+  border-bottom-right-radius: 10px; }
