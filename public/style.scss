@@ -33,46 +33,28 @@ body {
 }
 
 
-@mixin wrappercentering($wrap-width) {
-	width:$wrap-width;
-	/*margin: 0 auto;*/
-	margin-left: (100% - $wrap-width)/2;
-	margin-right: (100% - $wrap-width)/2;
+@mixin centerElementAtWidth($wrap-width) {
+	position: absolute;
+	left: (100% - $wrap-width)/2;
+	right: (100% - $wrap-width)/2;
 
-}
-
-
-#wrapper {
-	@media screen and (min-width: 780px) {
-		@include wrappercentering($desktop-wrap-width);
-	}
-	@media screen and (max-width: 780px) {
-		@include wrappercentering($mobile-wrap-width);
-	}
-	height: 100%;
-	background-color:red;
-	/*position:absolute;*/
 }
 
 
 #transcript {
 	@media screen and (min-width: 780px) {
-		width: $desktop-wrap-width;
+		@include centerElementAtWidth($desktop-wrap-width);
 	}
 	@media screen and (max-width: 780px) {
-		width: $mobile-wrap-width;
+		@include centerElementAtWidth($mobile-wrap-width);
 	}
-	position: absolute;
+
 	top:0px;
-	bottom: 165px;
-	left:0px;
+	bottom: 168px;
+	margin-right:10px;
 	
 	overflow: auto;
 	overflow-y: auto;
-	width:100%;
-
-	margin-right:30px;
-
 	/*box-sizing:border-box;*/
 
 	.phrase {	
@@ -82,7 +64,6 @@ body {
 		padding:5px;
 		min-height: 35px;
 		margin-left:10px;
-		margin-right:10px;
 	}
 }
 
@@ -95,13 +76,14 @@ body {
 
 #input {
 	@media screen and (min-width: 780px) {
-		width: $desktop-wrap-width;
+		@include centerElementAtWidth($desktop-wrap-width);
 	}
 	@media screen and (max-width: 780px) {
-		width: $mobile-wrap-width;
+		@include centerElementAtWidth($mobile-wrap-width);
 	}
-	position: absolute;
-	bottom: 5px;
+
+	bottom: 8px;
+
 	
 	#editarea {
 		background-color: white;
@@ -125,17 +107,21 @@ body {
 
 		#composingstick {
 			background-color: white;
-			display:inline;
-			margin-left: 20px;
-			margin-right: 50px;
+			display:block;
+			left:0px;
+			right:0px;
+			margin-left: 25px;
+			margin-right: 45px;
 		}
 		#sendbutton {
 			display:inline;
 			background-color: #4786DE;
 			position: absolute;
+			top:0px;
 			right:0px;
 			font-size:24px;
 			min-height:40px;
+			height:100%;
 			padding-left: 10px;
 			padding-right: 10px;
 			@include roundcorner(10px, "top-right");
@@ -143,7 +129,7 @@ body {
 		}
 	}
 	#buttons {
-		max-height: 103px;
+		max-height: 102px;
 		overflow: auto;
 		overflow-y: auto;
 		padding-top: 10px;
