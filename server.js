@@ -6,7 +6,7 @@ var http = require('http')
 app.use(express.static(__dirname + '/public'));
 
 var server = http.createServer(app);
-server.listen(3000, function() { console.log(this._connectionKey)});
+server.listen(port, function() { console.log(this._connectionKey)});
 
 console.log('http server listening on %d', port);
 
