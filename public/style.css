@@ -5,16 +5,21 @@ body {
   color: #444444;
   display: inline; }
 
-@media screen and (min-width: 780px) {
-  #wrapper {
-    width: 70%;
-    margin-left: 15%;
-    margin-right: auto; } }
-@media screen and (max-width: 780px) {
-  #wrapper {
-    width: 90%;
-    margin-left: 5%;
-    margin-right: auto; } }
+#wrapper {
+  height: 100%;
+  /*position:absolute;*/ }
+  @media screen and (min-width: 780px) {
+    #wrapper {
+      width: 70%;
+      /*margin: 0 auto;*/
+      margin-left: 15%;
+      margin-right: 15%; } }
+  @media screen and (max-width: 780px) {
+    #wrapper {
+      width: 90%;
+      /*margin: 0 auto;*/
+      margin-left: 5%;
+      margin-right: 5%; } }
 
 #transcript {
   position: absolute;
@@ -24,7 +29,8 @@ body {
   margin-right: 100px;
   overflow: auto;
   overflow-y: auto;
-  width: 100%; }
+  width: 100%;
+  /*box-sizing:border-box;*/ }
   @media screen and (min-width: 780px) {
     #transcript {
       width: 70%; } }
@@ -38,7 +44,8 @@ body {
     -webkit-border-radius: 10px;
     border-radius: 10px;
     padding: 5px;
-    min-height: 35px; }
+    min-height: 35px;
+    margin-right: 10px; }
 
 .lineitem {
   display: inline;
@@ -67,7 +74,13 @@ body {
     border-top-left-radius: 10px;
     -moz-border-bottom-left-radius: 10px;
     -webkit-border-bottom-left-radius: 10px;
-    border-bottom-left-radius: 10px; }
+    border-bottom-left-radius: 10px;
+    -moz-box-shadow: 0px 2px 3px 1px #444444;
+    -webkit-box-shadow: 0px 2px 3px 1px #444444;
+    box-shadow: 0px 2px 3px 1px #444444;
+    position: relative;
+    /*"Warning! z-index only has an effect if an element is positioned."*/
+    z-index: 3; }
     #input #editarea #prompt {
       font-size: 24px;
       display: inline;
@@ -94,13 +107,16 @@ body {
       -webkit-border-bottom-right-radius: 10px;
       border-bottom-right-radius: 10px; }
   #input #buttons {
-    max-height: 105px;
+    max-height: 103px;
     overflow: auto;
     overflow-y: auto;
     padding-top: 10px;
     margin-left: 10px;
     margin-right: 10px;
     background-color: #cccccc;
+    position: relative;
+    /*"Warning! z-index only has an effect if an element is positioned."*/
+    z-index: 0;
     -moz-border-bottom-right-radius: 10px;
     -webkit-border-bottom-right-radius: 10px;
     border-bottom-right-radius: 10px;
