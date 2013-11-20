@@ -14,7 +14,6 @@ function init() {
 	var sendbutton = document.createElement('div');
 	sendbutton.innerHTML = "<a>^</a>";
 	sendbutton.addEventListener("click", function(){ post()});
-	// sendbutton.setAttribute("style", "float:right");
 	sendbutton.setAttribute("id", "sendbutton");
 	document.querySelector('#editarea').appendChild(sendbutton);
 
@@ -26,8 +25,6 @@ function init() {
 	});
 
 	ws = io.connect()
-// 'http://localhost:5000/'
-// console.log("Handshook");
 	ws.on('post', function(picPhrase){
 		addPicPhraseToTranscript(picPhrase);
 	});
@@ -40,12 +37,12 @@ function init() {
 		document.querySelector('#buttons').appendChild(thisbutton);
 	});
 	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
-	ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
+	// ws.emit("getImages");
 	// for the sake of having lots of buttons, for visual effect
 
 }
@@ -80,9 +77,7 @@ function addPicPhraseToTranscript(picPhrase){
 		imagename = picPhrase[i];
 		addPicture(imagename, "#activephrase");
 	}
-	document.querySelector('#activephrase').addEventListener("load", autoscroll("transcript"));
 
-	
 	// document.querySelector('#activephrase').scrollIntoView();
 	document.querySelector('#activephrase').setAttribute("class", "phrase");
 	document.querySelector('#activephrase').setAttribute("id", "inactivephrase");

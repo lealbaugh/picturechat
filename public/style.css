@@ -1,22 +1,131 @@
-/*
-Errno::ENOENT: No such file or directory - test.scss
+body {
+  background-color: #777777;
+  font-family: Helevetica Neue, Helevetica, sans-serif;
+  font-weight: bold;
+  color: #444444;
+  display: inline; }
 
-Backtrace:
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:360:in `read'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:360:in `update_stylesheet'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:203:in `block in update_stylesheets'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `each'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:201:in `update_stylesheets'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/lib/sass/plugin/compiler.rb:283:in `block in watch'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/multi_listener.rb:108:in `call'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/multi_listener.rb:108:in `on_change'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/multi_listener.rb:117:in `block in initialize_adapter'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/adapter.rb:198:in `call'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/adapter.rb:198:in `report_changes'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/adapter.rb:210:in `poll_changed_dirs'
-/Users/lea/.rvm/gems/ruby-2.0.0-p247/gems/sass-3.2.12/vendor/listen/lib/listen/adapters/darwin.rb:38:in `block in start'
-*/
-body:before {
-  white-space: pre;
-  font-family: monospace;
-  content: "Errno::ENOENT: No such file or directory - test.scss"; }
+#transcript {
+  top: 0px;
+  bottom: 168px;
+  margin-right: 10px;
+  overflow: auto;
+  overflow-y: auto;
+  /*box-sizing:border-box;*/ }
+  @media screen and (min-width: 780px) {
+    #transcript {
+      position: absolute;
+      left: 15%;
+      right: 15%; } }
+  @media screen and (max-width: 780px) {
+    #transcript {
+      position: absolute;
+      left: 5%;
+      right: 5%; } }
+  #transcript .phrase {
+    background-color: #cccccc;
+    margin-top: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    padding: 5px;
+    min-height: 35px;
+    margin-left: 10px; }
+
+.lineitem {
+  display: inline;
+  padding-top: 5px; }
+
+#input {
+  bottom: 8px; }
+  @media screen and (min-width: 780px) {
+    #input {
+      position: absolute;
+      left: 15%;
+      right: 15%; } }
+  @media screen and (max-width: 780px) {
+    #input {
+      position: absolute;
+      left: 5%;
+      right: 5%; } }
+  #input #editarea {
+    background-color: white;
+    min-height: 40px;
+    -moz-border-top-right-radius: 12px;
+    -webkit-border-top-right-radius: 12px;
+    border-top-right-radius: 12px;
+    -moz-border-bottom-right-radius: 12px;
+    -webkit-border-bottom-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    -moz-border-top-left-radius: 10px;
+    -webkit-border-top-left-radius: 10px;
+    border-top-left-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    -moz-box-shadow: 0px 2px 3px 1px #444444;
+    -webkit-box-shadow: 0px 2px 3px 1px #444444;
+    box-shadow: 0px 2px 3px 1px #444444;
+    position: relative;
+    /*"Warning! z-index only has an effect if an element is positioned."*/
+    z-index: 3; }
+    #input #editarea #prompt {
+      font-size: 24px;
+      display: inline;
+      position: absolute;
+      padding: 5px; }
+    #input #editarea #composingstick {
+      background-color: white;
+      display: block;
+      left: 0px;
+      right: 0px;
+      margin-left: 25px;
+      margin-right: 45px; }
+    #input #editarea #sendbutton {
+      display: inline;
+      background-color: #4786DE;
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 24px;
+      min-height: 40px;
+      height: 100%;
+      padding-left: 10px;
+      padding-right: 10px;
+      -moz-border-top-right-radius: 10px;
+      -webkit-border-top-right-radius: 10px;
+      border-top-right-radius: 10px;
+      -moz-border-bottom-right-radius: 10px;
+      -webkit-border-bottom-right-radius: 10px;
+      border-bottom-right-radius: 10px; }
+  #input #buttons {
+    max-height: 102px;
+    overflow: auto;
+    overflow-y: auto;
+    padding-top: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #cccccc;
+    position: relative;
+    /*"Warning! z-index only has an effect if an element is positioned."*/
+    z-index: 0;
+    -moz-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    -moz-border-bottom-left-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 10px; }
+    #input #buttons .button {
+      display: inline;
+      margin: 5px; }
+
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 0px; }
+
+::-webkit-scrollbar-track {
+  border-radius: 10px; }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #444444; }

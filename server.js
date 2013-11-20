@@ -16,30 +16,11 @@ io.set('log level', 1);
 
 // Add a connect listener
 io.sockets.on('connection', function(socket){ 
-	// console.log(io.sockets.clients());
-	// console.log(io.sockets.clients().length);
-	// var interval = setInterval(function(){
-	// 	client.send("Hello");
-	// }, 1000);
-
 	socket.on('message',function(event){ 
-		console.log('Received message from client!',event);
+		console.log('Message: ',event);
 	});
-	socket.on('disconnect',function(){
-		// clearInterval(interval);
-		
-	});
-	socket.on('buttonpressed', function(submittedText, fn){
-		if (submittedText.match(/cats/i)) {
-			fn("You said: "+submittedText);
-		}
-		else {
-			fn("Nope!");
-		}
-	});
-	socket.on('mouseMoved', function(mouseX, mouseY){
-		socket.broadcast.emit('mouseMoved', mouseX, mouseY);
-		socket.emit('mouseMoved', mouseX, mouseY);
+	socket.on('disconnect',function(){	
+		console.log('Disconnect');	
 	});
 	socket.on('getImages', function(mouseX, mouseY){
 		var dir = require('node-dir');
