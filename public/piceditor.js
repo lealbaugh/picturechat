@@ -86,6 +86,7 @@ function addPicPhraseToTranscript(picPhrase){
 	// document.querySelector('#activephrase').scrollIntoView();
 	document.querySelector('#activephrase').setAttribute("class", "phrase");
 	document.querySelector('#activephrase').setAttribute("id", "inactivephrase");
+	autoscroll("transcript");
 }
 
 function autoscroll(id){
