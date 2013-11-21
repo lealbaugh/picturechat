@@ -1,7 +1,7 @@
 {
   "name": "apples-and-oranges",
   "version": "0.0.0",
-  "description": "",
+  "description": "ERROR: No README data found!",
   "main": "server.js",
   "dependencies": {
     "node-dir": "~0.1.5",

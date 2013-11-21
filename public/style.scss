@@ -40,6 +40,10 @@ body {
 
 }
 
+img {
+	padding-top: 5px;
+	min-height: 30px;
+}
 
 #transcript {
 	@media screen and (min-width: 780px) {
@@ -50,12 +54,11 @@ body {
 	}
 
 	top:0px;
-	bottom: 168px;
+	bottom: 141px;
 	margin-right:10px;
 	
 	overflow: auto;
 	overflow-y: auto;
-	/*box-sizing:border-box;*/
 
 	.phrase {	
 		background-color: $light;
@@ -70,9 +73,12 @@ body {
 
 .lineitem {	
 	display: inline;
-	padding-top: 5px;	
+/*	padding-top: 55px;	
+	min-height: 300px;
+	position: relative;
+	margin-top: 300px;*/
+	
 }
-
 
 #input {
 	@media screen and (min-width: 780px) {
@@ -112,6 +118,8 @@ body {
 			right:0px;
 			margin-left: 25px;
 			margin-right: 45px;
+			margin-top: 10px;
+			min-height: 40px;
 		}
 		#sendbutton {
 			display:inline;
@@ -129,10 +137,10 @@ body {
 		}
 	}
 	#buttons {
-		max-height: 102px;
+		max-height: 82px;
 		overflow: auto;
 		overflow-y: auto;
-		padding-top: 10px;
+		padding-top: 6px;
 		margin-left: 10px;
 		margin-right: 10px;
 		
@@ -146,7 +154,7 @@ body {
 
 		.button {
 			display: inline;
-			margin: 5px;
+			margin: 3px;
 		}
 	}
 }

@@ -35,9 +35,23 @@ function init() {
 		thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
 		thisbutton.setAttribute("class", "button")
 		document.querySelector('#buttons').appendChild(thisbutton);
+		console.log("added", buttonname);
 	});
+
+	ws.on('images', function(piclist){
+		for (var i=0; i<piclist.length; i++) {
+			buttonname = piclist[i];
+			var thisbutton = document.createElement('div');
+			thisbutton.innerHTML = "<a><img src=\"assets/"+buttonname+".png\"></a>";
+			thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
+			thisbutton.setAttribute("class", "button")
+			document.querySelector('#buttons').appendChild(thisbutton);
+			console.log("added", buttonname);
+		};
+	});
+	
 	ws.emit("getImages");
-	// ws.emit("getImages");
+	ws.emit("getImages");
 	// ws.emit("getImages");
 	// ws.emit("getImages");
 	// ws.emit("getImages");
