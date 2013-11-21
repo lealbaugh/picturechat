@@ -29,15 +29,6 @@ function init() {
 		addPicPhraseToTranscript(picPhrase);
 	});
 
-	ws.on('image', function(buttonname){
-		var thisbutton = document.createElement('div');
-		thisbutton.innerHTML = "<a><img src=\"assets/"+buttonname+".png\"></a>";
-		thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
-		thisbutton.setAttribute("class", "button")
-		document.querySelector('#buttons').appendChild(thisbutton);
-		console.log("added", buttonname);
-	});
-
 	ws.on('images', function(piclist){
 		for (var i=0; i<piclist.length; i++) {
 			buttonname = piclist[i];
@@ -46,10 +37,9 @@ function init() {
 			thisbutton.addEventListener("click", function(){ addToComposingStick(buttonname)});
 			thisbutton.setAttribute("class", "button")
 			document.querySelector('#buttons').appendChild(thisbutton);
-			console.log("added", buttonname);
 		};
 	});
-	
+
 	ws.emit("getImages");
 	ws.emit("getImages");
 	// ws.emit("getImages");
@@ -91,8 +81,6 @@ function addPicPhraseToTranscript(picPhrase){
 		imagename = picPhrase[i];
 		addPicture(imagename, "#activephrase");
 	}
-
-	// document.querySelector('#activephrase').scrollIntoView();
 	document.querySelector('#activephrase').setAttribute("class", "phrase");
 	document.querySelector('#activephrase').setAttribute("id", "inactivephrase");
 	autoscroll("transcript");

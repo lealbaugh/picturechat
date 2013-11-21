@@ -40,9 +40,6 @@ io.sockets.on('connection', function(socket){
 	});
 	socket.on('getImages', function(){
 		socket.emit("images", pictures);
-		// for (var i = 0; i<pictures.length; i++) {
-		// 	socket.emit("image", pictures[i]);
-		// }
 	});
 	socket.on('post', function(picPhrase){
 		socket.broadcast.emit("post", picPhrase);
